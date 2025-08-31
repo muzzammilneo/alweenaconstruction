@@ -18,6 +18,7 @@
             color: #222;
             background: #fff;
             line-height: 1.6;
+            padding-top: 80px; /* equal to nav height */
         }
 
         a {
@@ -32,11 +33,22 @@
             padding: 1.2rem 5%;
             background: #fff;
             border-bottom: 1px solid #eee;
-            position: sticky;
+            position: fixed;
+            /* changed from sticky */
             top: 0;
+            left: 0;
+            width: 100%;
             z-index: 1000;
             flex-wrap: wrap;
+            transition: transform 0.3s ease-in-out;
+            /* smooth hide/show */
         }
+
+        /* When hiding the navbar */
+        nav.hide {
+            transform: translateY(-100%);
+        }
+
 
         nav .logo {
             font-weight: bold;
@@ -206,49 +218,53 @@
 
         /* Internship Section */
         .internship {
-        background: linear-gradient(180deg, #f4a100, #ffcc66);
-        color: #111;
-        padding: 4rem 5%;
-        text-align: center;
-        border-radius: 12px;
-        margin: 3rem 5%;
+            background: linear-gradient(180deg, #f4a100, #ffcc66);
+            color: #111;
+            padding: 4rem 5%;
+            text-align: center;
+            border-radius: 12px;
+            margin: 3rem 5%;
         }
+
         .internship-content h2 {
-        font-size: 2rem;
-        margin-bottom: 1rem;
+            font-size: 2rem;
+            margin-bottom: 1rem;
         }
+
         .internship-content p {
-        font-size: 1.05rem;
-        max-width: 700px;
-        margin: auto;
-        margin-bottom: 1.5rem;
-        color: #222;
+            font-size: 1.05rem;
+            max-width: 700px;
+            margin: auto;
+            margin-bottom: 1.5rem;
+            color: #222;
         }
+
         .internship-content ul {
-        list-style: none;
-        margin: 1.5rem 0;
-        padding: 0;
+            list-style: none;
+            margin: 1.5rem 0;
+            padding: 0;
         }
+
         .internship-content ul li {
-        font-size: 1rem;
-        margin: 0.5rem 0;
-        font-weight: 500;
+            font-size: 1rem;
+            margin: 0.5rem 0;
+            font-weight: 500;
         }
+
         .btn-internship {
-        display: inline-block;
-        margin-top: 1.5rem;
-        padding: 0.9rem 1.8rem;
-        background: #111;
-        color: #fff;
-        border-radius: 30px;
-        font-weight: 600;
-        transition: background 0.3s ease;
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 0.9rem 1.8rem;
+            background: #111;
+            color: #fff;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: background 0.3s ease;
         }
+
         .btn-internship:hover {
-        background: #333;
+            background: #333;
         }
-
-
 
         /* About Section */
         .about {
@@ -392,6 +408,25 @@
 
 <body>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            let lastScrollY = window.scrollY;
+            const navbar = document.querySelector("nav");
+
+            window.addEventListener("scroll", () => {
+                if (window.innerWidth <= 768) {
+                    if (window.scrollY > lastScrollY) {
+                        navbar.classList.add("hide");
+                    } else {
+                        navbar.classList.remove("hide");
+                    }
+                    lastScrollY = window.scrollY;
+                }
+            });
+        });
+    </script>
+
+
     <!-- Navbar -->
     <nav>
         <div class="logo">AC</div>
@@ -424,19 +459,22 @@
     <section id="services" class="services">
         <h2>Our Services</h2>
         <div class="services-grid">
-            <div class="service-item">✔ R.C.C Building</div>
-            <div class="service-item">✔ Structural Design (Building)</div>
-            <div class="service-item">✔ 2D Planning</div>
-            <div class="service-item">✔ 3D Modeling</div>
-            <div class="service-item">✔ Interior Design</div>
-            <div class="service-item">✔ Exterior Design</div>
-            <div class="service-item">✔ Estimation & Costing (Building)</div>
-            <div class="service-item">✔ Renovation</div>
-            <div class="service-item">✔ MS Iron & Cement Fibre Board (Building)</div>
-            <div class="service-item">✔ Steel Structural Building</div>
-            <div class="service-item">✔ MEP & Fire fighting</div>
-            <div class="service-item">✔ Home Loan</div>
-            <div class="service-item">✔ Surveying</div>
+            <div class="service-item">✅ R.C.C Building</div>
+            <div class="service-item">✅ Structural Design (Building)</div>
+            <div class="service-item">✅ 2D Planning</div>
+            <div class="service-item">✅ 3D Modeling</div>
+            <div class="service-item">✅ Interior Design</div>
+            <div class="service-item">✅ Exterior Design</div>
+            <div class="service-item">✅ Estimation & Costing (Building)</div>
+            <div class="service-item">✅ Renovation</div>
+            <div class="service-item">✅ MS Iron & Cement Fibre Board (Building)</div>
+            <div class="service-item">✅ Steel Structural Building</div>
+            <div class="service-item">✅ MEP & Fire fighting</div>
+            <div class="service-item">✅ Home Loan</div>
+            <div class="service-item">✅ Surveying</div>
+            <div class="service-item">✅ Soil Testing</div>
+            <div class="service-item">✅ Landscape Designing</div>
+            <div class="service-item">✅ Pilling</div>
         </div>
 
         <h3 class="special-title">We Specialize In</h3>
@@ -451,20 +489,20 @@
 
     <!-- Internship Section -->
     <section id="internship" class="internship">
-    <div class="internship-content">
-        <h2>Internship Opportunities</h2>
-        <p>
-        We provide internship opportunities for students and aspiring professionals 
-        who wish to gain hands-on experience in the field of construction, design, 
-        and project management.
-        </p>
-        <ul>
-        <li>📜 Internship Certificate upon completion</li>
-        <li>💼 Work Experience Certificate</li>
-        <li>🏗 Real project exposure with our expert team</li>
-        </ul>
-        <a href="#contact" class="btn-internship">Apply Now</a>
-    </div>
+        <div class="internship-content">
+            <h2>Internship Opportunities</h2>
+            <p>
+                We provide internship opportunities for students and aspiring professionals
+                who wish to gain hands-on experience in the field of construction, design,
+                and project management.
+            </p>
+            <ul>
+                <li>📜 Internship Certificate upon completion</li>
+                <li>💼 Work Experience Certificate</li>
+                <li>🏗 Real project exposure with our expert team</li>
+            </ul>
+            <a href="#contact" class="btn-internship">Apply Now</a>
+        </div>
     </section>
 
 
@@ -489,11 +527,12 @@
         <h2>Our Team</h2>
         <div class="team-grid">
             <div class="team-member">
-                <img src="abdulhaque.png" alt="Md. Abdul Haque" />
+                <img src="abdulhaque.png" alt="Md. Abdul Haque" loading="lazy" />
                 <h3>Md. Abdul Haque</h3>
                 <p>Managing Director & Human Resource</p>
             </div>
             <div class="team-member">
+                <img src="nullAvatar.png" alt="Sm. Azaz Ahamed" loading="lazy" />
                 <h3>Sm. Azaz Ahamed</h3>
                 <p>Project Officer</p>
             </div>
