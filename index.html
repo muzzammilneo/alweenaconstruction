@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M/S Alweena Construction Prt. Ltd.</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", Arial, sans-serif;
+        }
+
+        body {
+            color: #222;
+            background: #fff;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 5%;
+            background: #fff;
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            flex-wrap: wrap;
+        }
+
+        nav .logo {
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: #111;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav ul li a {
+            color: #333;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #f4a100;
+        }
+
+        nav .contact-btn {
+            background: #f4a100;
+            padding: 0.6rem 1.4rem;
+            border-radius: 30px;
+            color: #111;
+            font-weight: 600;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 4rem 5%;
+            flex-wrap: wrap;
+            gap: 2rem;
+            min-height: 80vh;
+            /* Ensures hero has enough height */
+        }
+
+        .hero-text {
+            flex: 1 1 400px;
+        }
+
+        .hero-text h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            line-height: 1.2;
+        }
+
+        .hero-text p {
+            font-size: 1.05rem;
+            color: #555;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            line-height: 1.9;
+        }
+
+        .hero-text .btn {
+            display: inline-block;
+            background: #f4a100;
+            padding: 0.9rem 1.8rem;
+            border-radius: 30px;
+            font-weight: 600;
+            color: #111;
+        }
+
+        .hero-img {
+            flex: 1 1 400px;
+            text-align: right;
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+            /* 🔥 Forces image to bottom */
+        }
+
+        .hero-img img {
+            max-width: 100%;
+            position: relative;
+            bottom: 0;
+        }
+
+        /* Stats Section */
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            padding: 3rem 5%;
+            background: #fafafa;
+            text-align: center;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            flex: 1 1 200px;
+            min-width: 200px;
+        }
+
+        .stat h2 {
+            font-size: 2rem;
+            color: #f4a100;
+        }
+
+        .stat p {
+            font-size: 0.95rem;
+            color: #444;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 4rem 5%;
+            text-align: center;
+            background: #fff;
+        }
+
+        .services h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .service-item {
+            background: #fafafa;
+            padding: 1rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            text-align: left;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .special-title {
+            font-size: 1.6rem;
+            margin-bottom: 1.5rem;
+            color: #f4a100;
+        }
+
+        .special-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .special-item {
+            background: #fef5e5;
+            padding: 1rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            text-align: left;
+            border-left: 4px solid #f4a100;
+            font-weight: 500;
+        }
+
+        /* Internship Section */
+        .internship {
+        background: linear-gradient(180deg, #f4a100, #ffcc66);
+        color: #111;
+        padding: 4rem 5%;
+        text-align: center;
+        border-radius: 12px;
+        margin: 3rem 5%;
+        }
+        .internship-content h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        }
+        .internship-content p {
+        font-size: 1.05rem;
+        max-width: 700px;
+        margin: auto;
+        margin-bottom: 1.5rem;
+        color: #222;
+        }
+        .internship-content ul {
+        list-style: none;
+        margin: 1.5rem 0;
+        padding: 0;
+        }
+        .internship-content ul li {
+        font-size: 1rem;
+        margin: 0.5rem 0;
+        font-weight: 500;
+        }
+        .btn-internship {
+        display: inline-block;
+        margin-top: 1.5rem;
+        padding: 0.9rem 1.8rem;
+        background: #111;
+        color: #fff;
+        border-radius: 30px;
+        font-weight: 600;
+        transition: background 0.3s ease;
+        }
+        .btn-internship:hover {
+        background: #333;
+        }
+
+
+
+        /* About Section */
+        .about {
+            padding: 4rem 5%;
+            text-align: center;
+        }
+
+        .about h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .about p {
+            max-width: 700px;
+            margin: auto;
+            color: #555;
+            font-size: 1rem;
+        }
+
+        /* Team Section */
+        .team {
+            padding: 4rem 5%;
+            background: #fafafa;
+            text-align: center;
+        }
+
+        .team h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .team-grid {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .team-member {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            flex: 1 1 250px;
+            max-width: 300px;
+        }
+
+        .team-member img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            border: 3px solid #f4a100;
+        }
+
+        .team-member h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #111;
+        }
+
+        .team-member p {
+            font-size: 1rem;
+            color: #555;
+        }
+
+
+
+        /* Footer */
+        footer {
+            background: #111;
+            color: #ddd;
+            padding: 2rem 5%;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        footer strong {
+            color: #f4a100;
+        }
+
+        /* ---------------- Responsive Design ---------------- */
+        @media (max-width: 992px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-text {
+                order: 2;
+            }
+
+            .hero-img {
+                order: 1;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+                margin-top: 1rem;
+                gap: 1rem;
+            }
+
+            nav {
+                flex-direction: column;
+            }
+
+            .stats {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-text h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero-text p {
+                font-size: 0.95rem;
+            }
+
+            nav ul {
+                gap: 0.8rem;
+            }
+
+            .contact-btn {
+                padding: 0.5rem 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">AC</div>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <a href="https://wa.me/916009061158" class="contact-btn">Get in Touch</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Redefining Modern Construction</h1>
+            <p>
+                Blending quality craftsmanship with innovative design,
+                M/S ALWEENA CONSTRUCTION PRIVATE LIMITED is committed to building dreams in Thoubal, Manipur.
+                Let us help you shape your future — brick by brick, with expertise and dedication.
+            </p>
+            <a href="#contact" class="btn">Discuss Project</a>
+        </div>
+        <div class="hero-img">
+            <img src="./construction.png" alt="Construction workers">
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <h2>Our Services</h2>
+        <div class="services-grid">
+            <div class="service-item">✔ R.C.C Building</div>
+            <div class="service-item">✔ Structural Design (Building)</div>
+            <div class="service-item">✔ 2D Planning</div>
+            <div class="service-item">✔ 3D Modeling</div>
+            <div class="service-item">✔ Interior Design</div>
+            <div class="service-item">✔ Exterior Design</div>
+            <div class="service-item">✔ Estimation & Costing (Building)</div>
+            <div class="service-item">✔ Renovation</div>
+            <div class="service-item">✔ MS Iron & Cement Fibre Board (Building)</div>
+            <div class="service-item">✔ Steel Structural Building</div>
+            <div class="service-item">✔ MEP & Fire fighting</div>
+            <div class="service-item">✔ Home Loan</div>
+            <div class="service-item">✔ Surveying</div>
+        </div>
+
+        <h3 class="special-title">We Specialize In</h3>
+        <div class="special-grid">
+            <div class="special-item">⭐ False Ceiling</div>
+            <div class="special-item">⭐ Modular Kitchen</div>
+            <div class="special-item">⭐ Flooring Work</div>
+            <div class="special-item">⭐ Wardrobe</div>
+        </div>
+    </section>
+
+
+    <!-- Internship Section -->
+    <section id="internship" class="internship">
+    <div class="internship-content">
+        <h2>Internship Opportunities</h2>
+        <p>
+        We provide internship opportunities for students and aspiring professionals 
+        who wish to gain hands-on experience in the field of construction, design, 
+        and project management.
+        </p>
+        <ul>
+        <li>📜 Internship Certificate upon completion</li>
+        <li>💼 Work Experience Certificate</li>
+        <li>🏗 Real project exposure with our expert team</li>
+        </ul>
+        <a href="#contact" class="btn-internship">Apply Now</a>
+    </div>
+    </section>
+
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stat">
+            <h2>50+</h2>
+            <p>Projects Completed</p>
+        </div>
+        <div class="stat">
+            <h2>5+</h2>
+            <p>Skilled Professionals</p>
+        </div>
+        <div class="stat">
+            <h2>5+</h2>
+            <p>Years of Excellence</p>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="team">
+        <h2>Our Team</h2>
+        <div class="team-grid">
+            <div class="team-member">
+                <img src="abdulhaque.png" alt="Md. Abdul Haque" />
+                <h3>Md. Abdul Haque</h3>
+                <p>Managing Director & Human Resource</p>
+            </div>
+            <div class="team-member">
+                <h3>Sm. Azaz Ahamed</h3>
+                <p>Project Officer</p>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <h2>About Us</h2>
+        <p>
+            At M/S ALWEENA CONSTRUCTION PRIVATE LIMITED, we don’t just build structures —
+            we build trust. From homes to commercial spaces, our dedication,
+            innovation, and expertise redefine construction standards in Manipur and beyond.
+        </p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>
+            Udyam Registration Number: <strong>UDYAM-MN-08-0012958</strong><br />
+            © 2025 M/S ALWEENA CONSTRUCTION PRIVATE LIMITED. All rights reserved.
+        </p>
+    </footer>
+
+</body>
+
+</html>
